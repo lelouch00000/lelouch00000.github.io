@@ -14,12 +14,12 @@
 <meta property="og:site_name" content="YLCY">
 <meta property="og:description" content="2024_10 RCNN Linux进程（process）控制开发 Linux目录结构 进程的多种定义 进程的四要素   Linux下进程的结构 进程调度常见指令 Linux进程控制    2024_10RCNN    	      	    Linux进程（process）控制开发Linux目录结构  进程的多种定义 进程是独立的可调度的活动 进程是一个抽象实体，它代表一个程序的一次执行 进程">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/daily_note/process_status.png">
+<meta property="og:image" content="http://example.com/process_status.png">
 <meta property="article:published_time" content="2024-10-09T15:16:00.599Z">
-<meta property="article:modified_time" content="2024-10-10T06:42:12.072Z">
+<meta property="article:modified_time" content="2024-10-10T06:43:50.625Z">
 <meta property="article:author" content="rain">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/daily_note/process_status.png">
+<meta name="twitter:image" content="http://example.com/process_status.png">
       <link rel="icon" href="">
       <title>
         
@@ -144,7 +144,7 @@
       <mdui-icon name="date_range" style="vertical-align: text-bottom;font-size: 18px;"></mdui-icon>
       2024-10-09 23:16:00 &nbsp; <mdui-icon name="update"
           style="vertical-align: text-bottom;font-size: 18px;"></mdui-icon>
-        2024-10-10 14:42:12
+        2024-10-10 14:43:50
     </span>
     <br>
     <span>
@@ -215,7 +215,7 @@
 <li>PID的获取：getpid()、getppid()、getpgid()、getsid()。</li>
 </ul>
 </blockquote>
-<p><strong>进程的状态</strong><br>进程是程序的执行过程，根据它的生命期可划分为3种状态。<br><strong>执行态：</strong> 该进程正在占用CPU.<br><strong>就绪态：</strong> 进程已经具备执行的一切条件，正在等待分配CPU的处理时间片。<br><strong>等待态：</strong> 进程不能使用CPU，若等待事件发生则可将其唤醒。<br><img src="/./daily_note/process_status.png" alt="进程状态"></p>
+<p><strong>进程的状态</strong><br>进程是程序的执行过程，根据它的生命期可划分为3种状态。<br><strong>执行态：</strong> 该进程正在占用CPU.<br><strong>就绪态：</strong> 进程已经具备执行的一切条件，正在等待分配CPU的处理时间片。<br><strong>等待态：</strong> 进程不能使用CPU，若等待事件发生则可将其唤醒。<br><img src="/process_status.png" alt="进程状态"></p>
 <h2 id="Linux下进程的结构"><a href="#Linux下进程的结构" class="headerlink" title="Linux下进程的结构"></a>Linux下进程的结构</h2><ul>
 <li>linux系统是一个多进程的系统，进程间具有并行性、互不干扰等特点。</li>
 <li>进程间是分离的任务，拥有各自的权利和责任。其中每一个进程都运行在各自独立的虚拟地址空间。</li>
