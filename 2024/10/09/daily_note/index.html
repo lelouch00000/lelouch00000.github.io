@@ -7,19 +7,21 @@
   <meta name="description" content="">
   <meta name="author" content="rain">
   <meta name="generator" content="Hexo 7.3.0">
-    <meta name="description" content="2024_10 RCNN Linux进程（process）控制开发 Linux目录结构 进程的多种定义 进程的四要素 Linux下进程的结构 进程调度常见指令 Linux进程控制 exec函数族   调度和死锁 处理机调度的层次和调度算法的目标 “银行家算法”（Banker’s Algorithm）   AT89c51扩展存储区    2024_10RCNN    	      	    Lin">
+    <meta name="description" content="2024_10 RCNN Linux进程（process）控制开发 Linux目录结构 进程的多种定义 进程的四要素 Linux下进程的结构 进程调度常见指令 Linux进程控制 exec函数族   调度和死锁 处理机调度的层次和调度算法的目标 “银行家算法”（Banker’s Algorithm）   AT89c51扩展存储区 82c55扩展IO    2024_10RCNN">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Daily Note">
 <meta property="og:url" content="http://example.com/2024/10/09/daily_note/index.html">
 <meta property="og:site_name" content="YLCY">
-<meta property="og:description" content="2024_10 RCNN Linux进程（process）控制开发 Linux目录结构 进程的多种定义 进程的四要素 Linux下进程的结构 进程调度常见指令 Linux进程控制 exec函数族   调度和死锁 处理机调度的层次和调度算法的目标 “银行家算法”（Banker’s Algorithm）   AT89c51扩展存储区    2024_10RCNN    	      	    Lin">
+<meta property="og:description" content="2024_10 RCNN Linux进程（process）控制开发 Linux目录结构 进程的多种定义 进程的四要素 Linux下进程的结构 进程调度常见指令 Linux进程控制 exec函数族   调度和死锁 处理机调度的层次和调度算法的目标 “银行家算法”（Banker’s Algorithm）   AT89c51扩展存储区 82c55扩展IO    2024_10RCNN">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/2024/10/09/daily_note/Process_status.png">
 <meta property="og:image" content="http://example.com/2024/10/09/daily_note/%E5%87%BD%E6%95%B0%E5%90%8D%E5%90%AB%E4%B9%89.png">
 <meta property="og:image" content="http://example.com/2024/10/09/daily_note/Scheduling_queue_model.png">
 <meta property="og:image" content="http://example.com/2024/10/09/daily_note/AT89C51%E5%8D%95%E7%89%87%E6%9C%BA%E6%89%A9%E5%B1%95%E7%9A%84%E7%89%87%E5%A4%96%E4%B8%89%E6%80%BB%E7%BA%BF.png">
+<meta property="og:image" content="http://example.com/2024/10/09/daily_note/82c55%E8%8A%AF%E7%89%87.png">
+<meta property="og:image" content="http://example.com/2024/10/09/daily_note/82c55%E8%8A%AF%E7%89%87%E7%BB%93%E6%9E%84.png">
 <meta property="article:published_time" content="2024-10-09T15:16:00.599Z">
-<meta property="article:modified_time" content="2024-10-14T01:14:29.108Z">
+<meta property="article:modified_time" content="2024-10-17T12:20:07.648Z">
 <meta property="article:author" content="rain">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/2024/10/09/daily_note/Process_status.png">
@@ -147,7 +149,7 @@
       <mdui-icon name="date_range" style="vertical-align: text-bottom;font-size: 18px;"></mdui-icon>
       2024-10-09 23:16:00 &nbsp; <mdui-icon name="update"
           style="vertical-align: text-bottom;font-size: 18px;"></mdui-icon>
-        2024-10-14 09:14:29
+        2024-10-17 20:20:07
     </span>
     <br>
     <span>
@@ -182,6 +184,7 @@
 </ul>
 </li>
 <li><a href="#at89c51%E6%89%A9%E5%B1%95%E5%AD%98%E5%82%A8%E5%8C%BA">AT89c51扩展存储区</a></li>
+<li><a href="#82c55%E6%89%A9%E5%B1%95io">82c55扩展IO</a></li>
 </ul>
 </li>
 </ul>
@@ -337,6 +340,18 @@
 <li>ALE作为P0口发出的低8位地址锁存控制信号；</li>
 </ol>
 </li>
+</ul>
+</blockquote>
+<h2 id="82c55扩展IO"><a href="#82c55扩展IO" class="headerlink" title="82c55扩展IO"></a>82c55扩展IO</h2><img src="/2024/10/09/daily_note/82c55%E8%8A%AF%E7%89%87.png" class title="82c55"> \\
+<img src="/2024/10/09/daily_note/82c55%E8%8A%AF%E7%89%87%E7%BB%93%E6%9E%84.png" class title="82c55">
+<p><strong>brief:</strong> </p>
+<blockquote>
+<ul>
+<li>82c55共有40个引脚，引脚功能如下：<blockquote>
+<p>D7～D0：三态双向数据线，与单片机的P0口连接，用来与单片机之间传送数据信息。<br>CS<em>：片选信号线，低有效，表示本芯片被选中。<br>RD</em>：读信号线，低有效，读82C55端口数据的控制信号。<br>WR*：写信号线，低电平有效，用来向82C55写入端口数据的控制信号。<br>Vcc：+5V电源。<br>PA7～PA0：端口A输入&#x2F;输出线。<br>PB7～PB0：端口B输入&#x2F;输出线。<br>PC7～PC0：端口C输入&#x2F;输出线。<br>A1、A0：地址线，用来选择82C55内部的4个端口。<br>RESET：复位引脚，高电平有效。</p>
+</blockquote>
+</li>
+<li></li>
 </ul>
 </blockquote>
 
