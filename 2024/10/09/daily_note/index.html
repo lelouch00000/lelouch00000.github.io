@@ -7,12 +7,12 @@
   <meta name="description" content="">
   <meta name="author" content="rain">
   <meta name="generator" content="Hexo 7.3.0">
-    <meta name="description" content="2024_10 RCNN Linux进程（process）控制开发 Linux目录结构 进程的多种定义 进程的四要素 Linux下进程的结构 进程调度常见指令 Linux进程控制 exec函数族   调度和死锁 处理机调度的层次和调度算法的目标 “银行家算法”（Banker’s Algorithm）   AT89c51扩展存储区 82c55扩展IO    2024_10RCNN">
+    <meta name="description" content="2024_10 RCNN Linux进程（process）控制开发 Linux目录结构 进程的多种定义 进程的四要素 Linux下进程的结构 进程调度常见指令 Linux进程控制 exec函数族   调度和死锁 处理机调度的层次和调度算法的目标 “银行家算法”（Banker’s Algorithm）   AT89c51扩展存储区 82c55扩展IO 编译原理 什么是编译程序？ 编译程序的作用是什">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Daily Note">
 <meta property="og:url" content="http://example.com/2024/10/09/daily_note/index.html">
 <meta property="og:site_name" content="YLCY">
-<meta property="og:description" content="2024_10 RCNN Linux进程（process）控制开发 Linux目录结构 进程的多种定义 进程的四要素 Linux下进程的结构 进程调度常见指令 Linux进程控制 exec函数族   调度和死锁 处理机调度的层次和调度算法的目标 “银行家算法”（Banker’s Algorithm）   AT89c51扩展存储区 82c55扩展IO    2024_10RCNN">
+<meta property="og:description" content="2024_10 RCNN Linux进程（process）控制开发 Linux目录结构 进程的多种定义 进程的四要素 Linux下进程的结构 进程调度常见指令 Linux进程控制 exec函数族   调度和死锁 处理机调度的层次和调度算法的目标 “银行家算法”（Banker’s Algorithm）   AT89c51扩展存储区 82c55扩展IO 编译原理 什么是编译程序？ 编译程序的作用是什">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/2024/10/09/daily_note/Process_status.png">
 <meta property="og:image" content="http://example.com/2024/10/09/daily_note/%E5%87%BD%E6%95%B0%E5%90%8D%E5%90%AB%E4%B9%89.png">
@@ -21,7 +21,7 @@
 <meta property="og:image" content="http://example.com/2024/10/09/daily_note/82c55%E8%8A%AF%E7%89%87.png">
 <meta property="og:image" content="http://example.com/2024/10/09/daily_note/82c55%E8%8A%AF%E7%89%87%E7%BB%93%E6%9E%84.png">
 <meta property="article:published_time" content="2024-10-09T15:16:00.599Z">
-<meta property="article:modified_time" content="2024-10-17T12:20:07.648Z">
+<meta property="article:modified_time" content="2024-10-19T08:48:10.258Z">
 <meta property="article:author" content="rain">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/2024/10/09/daily_note/Process_status.png">
@@ -149,7 +149,7 @@
       <mdui-icon name="date_range" style="vertical-align: text-bottom;font-size: 18px;"></mdui-icon>
       2024-10-09 23:16:00 &nbsp; <mdui-icon name="update"
           style="vertical-align: text-bottom;font-size: 18px;"></mdui-icon>
-        2024-10-17 20:20:07
+        2024-10-19 16:48:10
     </span>
     <br>
     <span>
@@ -185,6 +185,10 @@
 </li>
 <li><a href="#at89c51%E6%89%A9%E5%B1%95%E5%AD%98%E5%82%A8%E5%8C%BA">AT89c51扩展存储区</a></li>
 <li><a href="#82c55%E6%89%A9%E5%B1%95io">82c55扩展IO</a></li>
+<li><a href="#%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86">编译原理</a><ul>
+<li><a href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%BC%96%E8%AF%91%E7%A8%8B%E5%BA%8F-%E7%BC%96%E8%AF%91%E7%A8%8B%E5%BA%8F%E7%9A%84%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88">什么是编译程序？ 编译程序的作用是什么？</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -351,9 +355,39 @@
 <p>D7～D0：三态双向数据线，与单片机的P0口连接，用来与单片机之间传送数据信息。<br>CS<em>：片选信号线，低有效，表示本芯片被选中。<br>RD</em>：读信号线，低有效，读82C55端口数据的控制信号。<br>WR*：写信号线，低电平有效，用来向82C55写入端口数据的控制信号。<br>Vcc：+5V电源。<br>PA7～PA0：端口A输入&#x2F;输出线。<br>PB7～PB0：端口B输入&#x2F;输出线。<br>PC7～PC0：端口C输入&#x2F;输出线。<br>A1、A0：地址线，用来选择82C55内部的4个端口。<br>RESET：复位引脚，高电平有效。</p>
 </blockquote>
 </li>
-<li></li>
 </ul>
 </blockquote>
+<h2 id="编译原理"><a href="#编译原理" class="headerlink" title="编译原理"></a>编译原理</h2><h3 id="什么是编译程序？-编译程序的作用是什么？"><a href="#什么是编译程序？-编译程序的作用是什么？" class="headerlink" title="什么是编译程序？ 编译程序的作用是什么？"></a>什么是编译程序？ 编译程序的作用是什么？</h3><p>编译程序（Compiler）是能够将高级语言程序翻译成机器语言程序的程序。编译程序的作用是将高级语言编写的程序转换为计算机可以理解和执行的机器语言程序，从而实现程序的执行。</p>
+<p><strong>编译程序分类</strong>：</p>
+<blockquote>
+<ul>
+<li>诊断编译程序：用于帮助程序开发调试。</li>
+<li>优化编译程序：用于提高目标代码效率。</li>
+<li>交叉编译程序：用于在不同的计算机系统之间进行编译。运行编译程序的计算机称为宿主机，而目标代码运行的计算机称为目标机。</li>
+<li>可变目标编译程序：用于生成针对不同硬件平台的代码。若不需重写编译程序中与机器无关部分就能改变目标机，则该编译程序为可变目标编译程序;</li>
+</ul>
+</blockquote>
+<p><strong>编译程序执行过程</strong>：</p>
+<blockquote>
+<ul>
+<li>词法分析：将源程序分解成一个个有意义的单词（Token），即词法单元。</li>
+<li>语法分析：根据语法规则，将词法单元组织成语法结构，即语法树。</li>
+<li>语义分析与中间代码生成：对语法树进行语义分析，检查语法树中是否存在语义错误，并生成中间代码。</li>
+<li>优化：对语法树进行优化，以提高目标代码的执行效率。</li>
+<li>目标代码生成：将优化后的语法树转换为目标代码，即机器语言程序。<br><em><strong>中间代码是一种符号系统，它介于源语言和目标语言之间，具有较好的抽象性，便于优化和转换。</strong></em></li>
+</ul>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">stateDiagram-v2</span><br><span class="line">    [*] --&gt; SourceProgram: 输入源程序</span><br><span class="line">    SourceProgram --&gt; LexicalAnalysis: 开始词法分析</span><br><span class="line">    LexicalAnalysis --&gt; SyntaxAnalysis: 生成记号流</span><br><span class="line">    LexicalAnalysis --&gt; ErrorHandling: 出错</span><br><span class="line">    SyntaxAnalysis --&gt; SemanticAnalysis: 生成语法树</span><br><span class="line">    SyntaxAnalysis --&gt; ErrorHandling: 出错</span><br><span class="line">    SemanticAnalysis --&gt; IntermediateCodeGeneration: 进行语义分析</span><br><span class="line">    SemanticAnalysis --&gt; ErrorHandling: 出错</span><br><span class="line">    IntermediateCodeGeneration --&gt; Optimization: 生成中间代码</span><br><span class="line">    Optimization --&gt; TargetCodeGeneration: 优化</span><br><span class="line">    TargetCodeGeneration --&gt; [*]: 生成目标代码</span><br><span class="line">    TargetCodeGeneration --&gt; ErrorHandling: 出错</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>上述五个阶段是逻辑功能上的划分，而具体实现时，受不同源语言、设计要求、使用对象和计算机条件(如主存容量)的限制，往往将编译程序组织 为若干遍(Paxs)。</p>
+<p><strong>编译前端和后端</strong>：</p>
+<blockquote>
+<ul>
+<li>编译前端：编译前端负责将源程序转换为中间代码，包括词法分析、语法分析、语义分析、中间代码生成等阶段。</li>
+<li>编译后端：编译后端负责将中间代码转换为目标代码，包括优化和目标代码生成等阶段。</li>
+</ul>
+</blockquote>
+<p><strong>编译程序与解释程序的区别</strong>：编译程序将源程序一次性地翻译成目标程序，而解释程序则逐行解释执行源程序。因此，编译程序生成的目标程序执行效率较高，而解释程序则便于调试和修改源程序。</p>
 
   </div>
 </mdui-card>
