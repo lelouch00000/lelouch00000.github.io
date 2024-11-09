@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html prefix="og: https://ogp.me/ns#" class="mdui-theme-dark" data-theme="dark">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <meta name="author" content="rain">
+  <meta name="generator" content="Hexo 7.3.0">
+    <meta name="description" content="SSHSSH远程端口转发前言由于多台设备分散在不同网络，需要通过SSH端口来实现随时随地访问设备，远程操控。 端口转发SSH端口转发分为本地转发和远程转发，本地转发和远程转发的区别在于数据流的方向。本文主要讲远程端口转发。 远程端口转发远程端口转发，顾名思义，就是将远程服务器的某个端口转发到本地。 命令1ssh -R [远程端口]:[远程地址]:[本地端口] [远程用户名]@[远程地址]  示例1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SSH">
+<meta property="og:url" content="http://example.com/2024/11/09/ssh/index.html">
+<meta property="og:site_name" content="YLCY">
+<meta property="og:description" content="SSHSSH远程端口转发前言由于多台设备分散在不同网络，需要通过SSH端口来实现随时随地访问设备，远程操控。 端口转发SSH端口转发分为本地转发和远程转发，本地转发和远程转发的区别在于数据流的方向。本文主要讲远程端口转发。 远程端口转发远程端口转发，顾名思义，就是将远程服务器的某个端口转发到本地。 命令1ssh -R [远程端口]:[远程地址]:[本地端口] [远程用户名]@[远程地址]  示例1">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-11-09T04:10:27.393Z">
+<meta property="article:modified_time" content="2024-11-09T04:32:00.848Z">
+<meta property="article:author" content="rain">
+<meta name="twitter:card" content="summary">
+      <link rel="icon" href="">
+      <title>
+        
+          SSH - YLCY
+              
+      </title>
+      
+<link rel="stylesheet" href="/css/site.css">
+
+      
+<link rel="stylesheet" href="/css/mdui_2.0.3/mdui.css">
+
+      <style>
+        /*禁用mdui对code的样式，因为它干扰了prism.js*/
+        .mdui-prose pre code {
+          background-color: transparent;
+          padding: 0px 0px;
+        }
+      </style>
+      
+<script src="/css/mdui_2.0.3/mdui.global.js"></script>
+
+      
+<script src="/fancybox/fancybox.umd.js"></script>
+
+      
+<link rel="stylesheet" href="/fancybox/fancybox.css">
+
+      
+<script src="/carousel/carousel.umd.js"></script>
+
+      
+<link rel="stylesheet" href="/carousel/carousel.css">
+
+      
+<link rel="stylesheet" href="/css/prism.css">
+
+          
+<link rel="stylesheet" href="/css/katex.min.css">
+
+            
+<link rel="stylesheet" href="/css/font-material-icon-filled/MaterialIconFilled.css">
+
+              <!-- Filled -->
+              <script>window.$=mdui.$</script>
+</head>
+
+  <body class="line-numbers">
+    <mdui-layout>
+      <mdui-top-app-bar>
+        <mdui-button-icon icon="menu" id="menu-btn">
+        </mdui-button-icon>
+        <mdui-top-app-bar-title>
+          YLCY
+        </mdui-top-app-bar-title>
+        <div style="flex-grow: 1"></div>
+        
+      </mdui-top-app-bar>
+      <mdui-navigation-drawer close-on-overlay-click close-on-esc id="drawer">
+    <mdui-list>
+        
+            
+            <mdui-list-item rounded icon="home"
+                href="/"
+                
+                
+                rel="next">
+                Home
+            </mdui-list-item>
+            
+            
+            
+            <mdui-list-item rounded icon="folder"
+                href="/categories"
+                
+                
+                rel="next">
+                Categories
+            </mdui-list-item>
+            
+            
+            
+            <mdui-list-item rounded icon="bookmark"
+                href="/tags"
+                
+                
+                rel="next">
+                Tags
+            </mdui-list-item>
+            
+            
+            
+            <mdui-list-item rounded icon="archive"
+                href="/archives"
+                
+                
+                rel="next">
+                Archives
+            </mdui-list-item>
+            
+            
+            
+            <mdui-list-item rounded icon="info"
+                href="/about"
+                
+                
+                rel="next">
+                About
+            </mdui-list-item>
+            
+            
+    </mdui-list>
+</mdui-navigation-drawer>
+        <mdui-layout-main style="min-height: 800px;" id="main">
+          <div style="padding-left: 16px;padding-right: 16px;" id="content">
+            <mdui-card variant="filled" style="padding: 16px;width: 100%;">
+  <div class="mdui-prose post" id="post-all">
+    <h1 style="margin-bottom: 8px;">
+      SSH
+    </h1>
+    <span class="post-date">
+      <mdui-icon name="date_range" style="vertical-align: text-bottom;font-size: 18px;"></mdui-icon>
+      2024-11-09 12:10:27 &nbsp; <mdui-icon name="update"
+          style="vertical-align: text-bottom;font-size: 18px;"></mdui-icon>
+        2024-11-09 12:32:00
+    </span>
+    <br>
+    <span>
+        Categories
+          
+              <br>
+      </span>
+      
+        
+          Tags
+            
+                
+                  <!-- photos gallery -->
+                  
+                      <!-- content -->
+                      <h1 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h1><h2 id="SSH远程端口转发"><a href="#SSH远程端口转发" class="headerlink" title="SSH远程端口转发"></a>SSH远程端口转发</h2><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>由于多台设备分散在不同网络，需要通过SSH端口来实现随时随地访问设备，远程操控。</p>
+<h3 id="端口转发"><a href="#端口转发" class="headerlink" title="端口转发"></a>端口转发</h3><p>SSH端口转发分为本地转发和远程转发，本地转发和远程转发的区别在于数据流的方向。<br>本文主要讲远程端口转发。</p>
+<h3 id="远程端口转发"><a href="#远程端口转发" class="headerlink" title="远程端口转发"></a>远程端口转发</h3><p>远程端口转发，顾名思义，就是将远程服务器的某个端口转发到本地。</p>
+<h4 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -R [远程端口]:[远程地址]:[本地端口] [远程用户名]@[远程地址]</span><br></pre></td></tr></table></figure>
+
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -R 8080:localhost:80 root@192.168.1.1</span><br></pre></td></tr></table></figure>
+<p>这条指令是将本地的80端口转发到远程服务器的8080端口，即访问远程服务器的8080端口，就相当于访问本地的80端口。</p>
+<h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><ol>
+<li>远程端口转发需要远程服务器支持，如果远程服务器不支持，需要修改远程服务器的sshd_config文件，将GatewayPorts设置为yes。</li>
+<li>修改完sshd_config文件后，需要重启sshd服务。</li>
+<li>如果远程服务器有防火墙，需要将远程服务器的防火墙关闭，或者将远程服务器的防火墙规则修改为允许访问8080端口。</li>
+</ol>
+<p>执行完上述操作后，就可以通过访问远程服务器的8080端口，来访问本地的80端口了。</p>
+<h4 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a>示例</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -p 8080 root@92.168.1.1</span><br></pre></td></tr></table></figure>
+
+<h4 id="存在的问题"><a href="#存在的问题" class="headerlink" title="存在的问题"></a>存在的问题</h4><ol>
+<li>ssh连接不稳定，需要定期重连。</li>
+</ol>
+<h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><p>采用crontab定时任务，定期重连ssh连接。</p>
+<h4 id="示例-2"><a href="#示例-2" class="headerlink" title="示例"></a>示例</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -e</span><br></pre></td></tr></table></figure>
+<p>在打开的文件中添加以下内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*/1 * * * * ssh -p 8080 root@92.168.1.1</span><br></pre></td></tr></table></figure>
+<p>保存并退出，这样每隔1分钟就会自动重连一次ssh连接。</p>
+
+  </div>
+</mdui-card>
+<script>
+  const $ = mdui.$;
+  $("#post-all").find("img").each((index, ele) => {
+    $(ele).replaceWith(`<a data-src="${$(ele).prop("src")}" class="fancybox-enabled" data-fancybox="picture" data-caption="${$(ele).prop("alt")}">${ele.outerHTML}</a>`)
+  });
+  Fancybox.bind(".fancybox-enabled", {
+    on: {
+      ready: () => {
+        $("mdui-top-app-bar").addClass("invisible")
+      }, close: () => {
+        $("mdui-top-app-bar").removeClass("invisible")
+      }
+    }
+  });
+  
+</script>
+
+    
+                    
+              <br>
+              <span></span>
+          </div>
+        </mdui-layout-main>
+    </mdui-layout>
+    
+          <script>
+            mdui.setColorScheme('#4fd8eb');
+            const navigationDrawer = document.querySelector("#drawer");
+            const mainlayout = document.querySelector("#main");
+            const breakpointCondition = mdui.breakpoint();
+            if (breakpointCondition.up('sm')) {
+              if (localStorage.getItem('navigationDrawer') == null) {
+                if("true"=="true")localStorage.setItem('navigationDrawer', "true");
+              }
+              if("true"=="true")navigationDrawer.setAttribute("open", (localStorage.getItem('navigationDrawer') == "true" ? true : false))
+            }
+            const menuBtn = document.querySelector("#menu-btn");
+            menuBtn.addEventListener("click", () => {
+              navigationDrawer.open = !navigationDrawer.open;
+              if("true"=="true")localStorage.setItem('navigationDrawer', navigationDrawer.open.toString());
+            });
+            const searchBtn = document.querySelector("#search-dlg-btn");
+            searchBtn.addEventListener("click", () => {
+              document.querySelector("#search-dlg").open = true;
+            });
+          </script>
+          
+<script src="/js/prism.js"></script>
+
+  </body>
+
+</html>
